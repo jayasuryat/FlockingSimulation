@@ -2,6 +2,7 @@ package com.digitalcrafts.flockingsimulation.logic
 
 import android.util.Log
 import com.digitalcrafts.flockingsimulation.common.Constants.GLOBAL_TAG
+import com.digitalcrafts.flockingsimulation.common.MathUtils.randomUnsignedFloat
 import com.digitalcrafts.flockingsimulation.models.*
 import kotlin.random.Random
 
@@ -24,16 +25,16 @@ class FlockGenerator(
                     x = Random.nextFloat() * width,
                     y = Random.nextFloat() * height,
                 ),
-                speed = Vector(
-                    magnitude = Random.nextFloat() * MAX_SPEED,
-                    direction = direction
+                speed = Vector2d(
+                    x = randomUnsignedFloat() * MAX_SPEED,
+                    y = randomUnsignedFloat() * MAX_SPEED,
                 ),
-                acceleration = Vector(
-                    magnitude = Random.nextFloat() * MAX_ACCELERATION,
-                    direction = direction
+                acceleration = Vector2d(
+                    x = randomUnsignedFloat() * MAX_ACCELERATION,
+                    y = randomUnsignedFloat() * MAX_ACCELERATION,
                 ),
-                maxSpeed = Random.nextFloat() * MAX_SPEED,
-                maxAcceleration = Random.nextFloat() * MAX_ACCELERATION
+                maxSpeed = randomUnsignedFloat() * MAX_SPEED,
+                maxAcceleration = randomUnsignedFloat() * MAX_ACCELERATION
             )
         }
 
@@ -53,13 +54,13 @@ class FlockGenerator(
                     x = Random.nextFloat() * width,
                     y = Random.nextFloat() * height,
                 ),
-                speed = Vector(
-                    magnitude = 1f,
-                    direction = direction
+                speed = Vector2d(
+                    x = 1f,
+                    y = 1f,
                 ),
-                acceleration = Vector(
-                    magnitude = 1f,
-                    direction = direction
+                acceleration = Vector2d(
+                    x = 1f,
+                    y = 1f,
                 ),
                 maxSpeed = MAX_SPEED,
                 maxAcceleration = MAX_ACCELERATION
@@ -73,7 +74,7 @@ class FlockGenerator(
 
     companion object {
 
-        private const val MAX_SPEED: Float = 30f
+        private const val MAX_SPEED: Float = 10f
         private const val MAX_ACCELERATION: Float = 2f
     }
 }

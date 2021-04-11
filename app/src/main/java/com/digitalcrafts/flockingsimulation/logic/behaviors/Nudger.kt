@@ -11,12 +11,9 @@ class Nudger : FlockBehavior {
 
         boids = source.boids.map { boid ->
 
-            var newSpeed = boid.speed.add(boid.acceleration)
-            if (newSpeed.magnitude > boid.maxSpeed)
-                newSpeed = boid.speed.copy(magnitude = boid.maxSpeed)
-
+            val newSpeed = (boid.speed + boid.acceleration).withLimit(boid.maxSpeed)
             boid.copy(
-                position = boid.position.add(boid.speed),
+                position = boid.position + boid.speed,
                 speed = newSpeed
             )
         })

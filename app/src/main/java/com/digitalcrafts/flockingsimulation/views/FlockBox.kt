@@ -19,7 +19,7 @@ class FlockBox @JvmOverloads constructor(
 ) : View(context, attrs, defStyle) {
 
     private val boidPaint: Paint = Paint().apply {
-        color = ContextCompat.getColor(context, R.color.black)
+        color = ContextCompat.getColor(context, R.color.white)
         style = Paint.Style.FILL
         isAntiAlias = true
     }
