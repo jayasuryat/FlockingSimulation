@@ -6,6 +6,7 @@ class FlockBehaviorProcessor {
 
     private val behaviors: List<FlockBehavior> = listOf(
         FrameIncrement(),
+        Alignment(),
         Nudger(),
         EdgeChecker()
     )

@@ -31,6 +31,15 @@ data class Vector2d(
         )
     }
 
+    fun withMagnitude(requiredMagnitude: Float): Vector2d {
+        val x = (x / magnitude) * requiredMagnitude
+        val y = (y / magnitude) * requiredMagnitude
+        return Vector2d(
+            x = x,
+            y = y
+        )
+    }
+
     operator fun plus(vector: Vector2d): Vector2d = Vector2d(
         x = x + vector.x,
         y = y + vector.y,

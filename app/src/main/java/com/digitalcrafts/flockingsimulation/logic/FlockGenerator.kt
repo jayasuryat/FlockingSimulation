@@ -33,8 +33,8 @@ class FlockGenerator(
                     x = randomUnsignedFloat() * MAX_ACCELERATION,
                     y = randomUnsignedFloat() * MAX_ACCELERATION,
                 ),
-                maxSpeed = randomUnsignedFloat() * MAX_SPEED,
-                maxAcceleration = randomUnsignedFloat() * MAX_ACCELERATION
+                maxSpeed =/* randomUnsignedFloat() **/ MAX_SPEED,
+                maxAcceleration = /*randomUnsignedFloat() **/ MAX_ACCELERATION
             )
         }
 
@@ -75,6 +75,6 @@ class FlockGenerator(
     companion object {
 
         private const val MAX_SPEED: Float = 10f
-        private const val MAX_ACCELERATION: Float = 2f
+        private const val MAX_ACCELERATION: Float = 5f
     }
 }

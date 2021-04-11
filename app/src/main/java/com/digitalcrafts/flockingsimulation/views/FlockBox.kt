@@ -28,8 +28,8 @@ class FlockBox @JvmOverloads constructor(
 
     private var flockSnapshot: FlockSnapshot = FlockGenerator(
         numberOfBoids = 20,
-        width = 500f,
-        height = 500f,
+        width = 1000f,
+        height = 1000f,
     ).generate()
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

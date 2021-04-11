@@ -1,7 +1,5 @@
 package com.digitalcrafts.flockingsimulation.models
 
-import kotlin.math.sqrt
-
 data class Boid(
     val position: Position,
     val speed: Vector2d,
