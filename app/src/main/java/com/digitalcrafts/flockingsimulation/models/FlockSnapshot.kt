@@ -3,6 +3,9 @@ package com.digitalcrafts.flockingsimulation.models
 data class FlockSnapshot(
     val frame: Int,
     val boids: List<Boid>,
+    val alignmentCoefficient: Float,
+    val cohesionCoefficient: Float,
+    val separationCoefficient: Float,
     var height: Float,
     var width: Float,
 ) {

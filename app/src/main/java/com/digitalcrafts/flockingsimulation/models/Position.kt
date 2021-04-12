@@ -14,4 +14,19 @@ data class Position(
         x = x + velocity.x,
         y = y + velocity.y
     )
+
+    operator fun plus(position: Position): Position = Position(
+        x = x + position.x,
+        y = y + position.y
+    )
+
+    operator fun minus(position: Position): Position = Position(
+        x = x - position.x,
+        y = y - position.y
+    )
+
+    operator fun div(value: Float): Position = Position(
+        x = x / value,
+        y = y / value
+    )
 }

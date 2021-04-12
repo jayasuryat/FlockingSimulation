@@ -14,7 +14,8 @@ class Nudger : FlockBehavior {
             val newSpeed = (boid.speed + boid.acceleration).withLimit(boid.maxSpeed)
             boid.copy(
                 position = boid.position + boid.speed,
-                speed = newSpeed
+                speed = newSpeed,
+                acceleration = boid.acceleration * 0f
             )
         })
 }

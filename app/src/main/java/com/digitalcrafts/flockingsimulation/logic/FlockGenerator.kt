@@ -38,7 +38,10 @@ class FlockGenerator(
             )
         }
 
-        val snapShot = FlockSnapshot(frame = 0, boids = boids, width = width, height = height)
+        val snapShot = FlockSnapshot(
+            frame = 0, boids = boids, width = width, height = height,
+            alignmentCoefficient = 1f, cohesionCoefficient = 1f, separationCoefficient = 1f
+        )
         Log.d(GLOBAL_TAG, "generated snapshot : ${snapShot.prettyToString()}")
         return snapShot
     }
@@ -67,14 +70,17 @@ class FlockGenerator(
             )
         }
 
-        val snapShot = FlockSnapshot(frame = 0, boids = boids, width = width, height = height)
+        val snapShot = FlockSnapshot(
+            frame = 0, boids = boids, width = width, height = height,
+            alignmentCoefficient = 1f, cohesionCoefficient = 1f, separationCoefficient = 1f
+        )
         Log.d(GLOBAL_TAG, "generated snapshot : ${snapShot.prettyToString()}")
         return snapShot
     }
 
     companion object {
 
-        private const val MAX_SPEED: Float = 10f
-        private const val MAX_ACCELERATION: Float = 5f
+        private const val MAX_SPEED: Float = 7f
+        private const val MAX_ACCELERATION: Float = 0.5f
     }
 }

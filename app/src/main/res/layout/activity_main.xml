@@ -1,13 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@color/black"
     tools:context=".MainActivity">
 
     <com.digitalcrafts.flockingsimulation.views.FlockBox
+        android:id="@+id/fbFlock"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/clControllers"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivControllersToggle"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_up"
+        app:layout_constraintBottom_toTopOf="@id/clControllers"
+        app:layout_constraintEnd_toEndOf="@id/clControllers"
+        app:layout_constraintStart_toStartOf="@+id/clControllers"
+        tools:ignore="ContentDescription" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clControllers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tvAlignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alignment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sbAlignment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="1f"
+            android:valueTo="10f"
+            app:layout_constraintTop_toBottomOf="@+id/tvAlignment" />
+
+        <TextView
+            android:id="@+id/tvCohesion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cohesion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sbAlignment" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sbCohesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="1f"
+            android:valueTo="10f"
+            app:layout_constraintTop_toBottomOf="@+id/tvCohesion" />
+
+        <TextView
+            android:id="@+id/tvSeparation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/separation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sbCohesion" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sbSeparation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:valueFrom="1f"
+            android:valueTo="10f"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeparation" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

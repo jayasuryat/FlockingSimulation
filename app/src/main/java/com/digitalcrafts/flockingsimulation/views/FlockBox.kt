@@ -27,10 +27,22 @@ class FlockBox @JvmOverloads constructor(
     private val flockBehaviorProcessor: FlockBehaviorProcessor = FlockBehaviorProcessor()
 
     private var flockSnapshot: FlockSnapshot = FlockGenerator(
-        numberOfBoids = 20,
+        numberOfBoids = 25,
         width = 1000f,
         height = 1000f,
     ).generate()
+
+    fun setAlignmentCoefficient(value: Float) {
+        flockSnapshot = flockSnapshot.copy(alignmentCoefficient = value)
+    }
+
+    fun setCohesionCoefficient(value: Float) {
+        flockSnapshot = flockSnapshot.copy(cohesionCoefficient = value)
+    }
+
+    fun setSeparationCoefficient(value: Float) {
+        flockSnapshot = flockSnapshot.copy(separationCoefficient = value)
+    }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)

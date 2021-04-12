@@ -4,16 +4,21 @@ import com.digitalcrafts.flockingsimulation.models.Boid
 import com.digitalcrafts.flockingsimulation.models.FlockSnapshot
 import com.digitalcrafts.flockingsimulation.models.Vector2d
 
-class Alignment : FlockBehavior {
+class Cohesion : FlockBehavior {
 
     override fun nextFrameFor(flockSnapshot: FlockSnapshot): FlockSnapshot =
         alignBoids(flockSnapshot)
 
     private fun alignBoids(source: FlockSnapshot): FlockSnapshot = source.copy(
-        boids = source.boids.map { boid -> boid.copy(acceleration = boid.align(source.boids)) }
+        boids = source.boids.map { boid ->
+            val newAcceleration = boid.cohesion(source.boids)
+            val multiplied = newAcceleration * source.cohesionCoefficient
+            val final = boid.acceleration + multiplied
+            boid.copy(acceleration = final)
+        }
     )
 
-    private fun Boid.align(flock: List<Boid>): Vector2d {
+    private fun Boid.cohesion(flock: List<Boid>): Vector2d {
 
         val boid = this
         var total = 0
@@ -25,14 +30,15 @@ class Alignment : FlockBehavior {
 
             if (distance < PERCEPTION_RADIUS && boid != other) {
                 total++
-                steering += other.speed
+                steering += Vector2d(other.position.x, other.position.y)
             }
         }
 
-        return if (total == 0) boid.acceleration
+        return if (total == 0) steering
         else {
-            steering /= Vector2d(total.toFloat(), total.toFloat())
-            steering = steering.withMagnitude(boid.maxAcceleration)
+            steering /= total.toFloat()
+            steering -= Vector2d(this.position.x, this.position.y)
+            steering = steering.withMagnitude(boid.maxSpeed)
             steering - boid.speed
             steering = steering.withLimit(boid.maxAcceleration)
             steering
@@ -41,6 +47,6 @@ class Alignment : FlockBehavior {
 
     companion object {
 
-        private const val PERCEPTION_RADIUS: Float = 100f
+        private const val PERCEPTION_RADIUS: Float = 200f
     }
 }

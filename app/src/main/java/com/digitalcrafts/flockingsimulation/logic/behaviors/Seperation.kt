@@ -4,21 +4,21 @@ import com.digitalcrafts.flockingsimulation.models.Boid
 import com.digitalcrafts.flockingsimulation.models.FlockSnapshot
 import com.digitalcrafts.flockingsimulation.models.Vector2d
 
-class Alignment : FlockBehavior {
+class Separation : FlockBehavior {
 
     override fun nextFrameFor(flockSnapshot: FlockSnapshot): FlockSnapshot =
         alignBoids(flockSnapshot)
 
     private fun alignBoids(source: FlockSnapshot): FlockSnapshot = source.copy(
         boids = source.boids.map { boid ->
-            val newAcceleration = boid.align(source.boids)
-            val multiplied = newAcceleration * source.alignmentCoefficient
+            val newAcceleration = boid.separate(source.boids)
+            val multiplied = newAcceleration * source.separationCoefficient
             val final = boid.acceleration + multiplied
             boid.copy(acceleration = final)
         }
     )
 
-    private fun Boid.align(flock: List<Boid>): Vector2d {
+    private fun Boid.separate(flock: List<Boid>): Vector2d {
 
         val boid = this
         var total = 0
@@ -30,7 +30,9 @@ class Alignment : FlockBehavior {
 
             if (distance < PERCEPTION_RADIUS && boid != other) {
                 total++
-                steering += other.speed
+                var diff = boid.position - other.position
+                diff /= (distance * distance)
+                steering += Vector2d(diff.x, diff.y)
             }
         }
 
@@ -38,7 +40,7 @@ class Alignment : FlockBehavior {
         else {
             steering /= total.toFloat()
             steering = steering.withMagnitude(boid.maxSpeed)
-            steering - boid.speed
+            steering -= boid.speed
             steering = steering.withLimit(boid.maxAcceleration)
             steering
         }

@@ -55,8 +55,18 @@ data class Vector2d(
         y = y * vector.y,
     )
 
+    operator fun times(value: Float): Vector2d = Vector2d(
+        x = x * value,
+        y = y * value,
+    )
+
     operator fun div(vector: Vector2d): Vector2d = Vector2d(
         x = x / vector.x,
         y = y / vector.y,
+    )
+
+    operator fun div(value: Float): Vector2d = Vector2d(
+        x = x / value,
+        y = y / value,
     )
 }
