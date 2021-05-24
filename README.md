@@ -1,11 +1,11 @@
 # Flocking Simulation / Boids
-#### This is a simple Android app, completely writtern in Kotlin to simulate flocking behavior based on Craig Reynolds's [Boids](https://www.red3d.com/cwr/boids/) algorithm.
+#### This is a simple Android app, completely written in Kotlin to simulate flocking behavior based on Craig Reynolds's [Boids](https://www.red3d.com/cwr/boids/) algorithm.
 
 
 [[Wikipedia]](https://en.wikipedia.org/wiki/Boids) Boids (which refers to a bird-like object) is an example of emergent behavior; that is, the complexity of Boids arises from the interaction of individual agents (the boids, in this case) adhering to a set of simple rules. The rules applied in the simplest Boids world are as follows:
-* __Separation__: Steer to avoid crowding local flockmates
-* __Alignment__: Steer towards the average heading of local flockmates
-* __Cohesion__: Steer to move towards the average position (center of mass) of local flockmates
+* __Separation__: steer to avoid crowding local flockmates
+* __Alignment__: steer towards the average heading of local flockmates
+* __Cohesion__: steer to move towards the average position (center of mass) of local flockmates
 
 ### Demo
 <img src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/demo.gif" alt="Demo gif" 
