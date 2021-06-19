@@ -8,7 +8,8 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.digitalcrafts.flockingsimulation.R
 import com.digitalcrafts.flockingsimulation.logic.FlockGenerator
-import com.digitalcrafts.flockingsimulation.logic.behaviors.FlockBehaviorProcessor
+import com.digitalcrafts.flockingsimulation.logic.defintions.FlockBehavior
+import com.digitalcrafts.flockingsimulation.logic.processor.FlockBehaviorProcessor
 import com.digitalcrafts.flockingsimulation.models.Boid
 import com.digitalcrafts.flockingsimulation.models.FlockSnapshot
 
@@ -24,7 +25,7 @@ class FlockBox @JvmOverloads constructor(
         isAntiAlias = true
     }
 
-    private val flockBehaviorProcessor: FlockBehaviorProcessor = FlockBehaviorProcessor()
+    private val flockBehaviorProcessor: FlockBehavior = FlockBehaviorProcessor()
 
     private var flockSnapshot: FlockSnapshot = FlockGenerator(
         numberOfBoids = 25,
@@ -57,7 +58,7 @@ class FlockBox @JvmOverloads constructor(
     }
 
     private fun updateSnapshot() {
-        flockSnapshot = flockBehaviorProcessor.process(flockSnapshot)
+        flockSnapshot = flockBehaviorProcessor.nextFrameFor(flockSnapshot)
         invalidate()
     }
 
