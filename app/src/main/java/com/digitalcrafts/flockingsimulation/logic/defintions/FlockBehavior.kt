@@ -1,4 +1,4 @@
-package com.digitalcrafts.flockingsimulation.logic.behaviors
+package com.digitalcrafts.flockingsimulation.logic.defintions
 
 import com.digitalcrafts.flockingsimulation.models.FlockSnapshot
 

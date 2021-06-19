@@ -1,5 +1,6 @@
 package com.digitalcrafts.flockingsimulation.logic.behaviors
 
+import com.digitalcrafts.flockingsimulation.logic.defintions.FlockBehavior
 import com.digitalcrafts.flockingsimulation.models.FlockSnapshot
 
 class Nudger : FlockBehavior {
