@@ -20,8 +20,8 @@ data-canonical-src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/de
 | <img src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/seperation.gif" alt="All controlls gif" data-canonical-src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/seperation.gif" width="270" height="585" />| <img src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/alignment.gif" alt="All controlls gif" data-canonical-src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/alignment.gif" width="270" height="585" />| <img src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/cohesion.gif" alt="All controlls gif" data-canonical-src="https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/demo/cohesion.gif" width="270" height="585" /> |
 
 ### Logic
-* All the behaviors are abstracted behind [FlockBehavior](https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/app/src/main/java/com/digitalcrafts/flockingsimulation/logic/behaviors/FlockBehavior.kt) interface.
-* All the applied behaviors are determined from [FlockBehaviorProcessor](https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/app/src/main/java/com/digitalcrafts/flockingsimulation/logic/behaviors/FlockBehaviorProcessor.kt) class, you may add / modify / remove any behavior easily from here as desired.
+* All the behaviors are abstracted behind [FlockBehavior](https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/app/src/main/java/com/digitalcrafts/flockingsimulation/logic/defintions/FlockBehavior.kt) interface.
+* All the applied behaviors are determined from [FlockBehaviorProcessor](https://github.com/JayaSuryaT/FlockingSimulation/blob/dev/app/src/main/java/com/digitalcrafts/flockingsimulation/logic/processor/FlockBehaviorProcessor.kt) class, you may add / modify / remove any behavior easily from here as desired.
 
 
 # Thanks
